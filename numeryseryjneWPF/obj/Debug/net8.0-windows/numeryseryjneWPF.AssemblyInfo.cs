@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("numeryseryjneWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00796049dd1942dc4a95ff4ca828e5ea5c10913c")]
 [assembly: System.Reflection.AssemblyProductAttribute("numeryseryjneWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("numeryseryjneWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
