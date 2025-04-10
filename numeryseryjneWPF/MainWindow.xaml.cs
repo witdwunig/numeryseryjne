@@ -1,30 +1,50 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
-using System.Net.Http;
-using System.Text.Json;
-using System.Text;
+using System.Windows.Controls;
 
-namespace WpfApp
+namespace SerialTrack
 {
     public partial class MainWindow : Window
     {
-        public ObservableCollection<string> Items { get; set; }
+        public ObservableCollection<SerialItem> SerialItems { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            Items = new ObservableCollection<string>();
-            DataContext = this;
+            SerialItems = new ObservableCollection<SerialItem>();
+            SerialDataGrid.ItemsSource = SerialItems;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(InputTextBox.Text))
+            SerialItems.Add(new SerialItem
             {
-                Items.Add(InputTextBox.Text);
-                InputTextBox.Clear();
+                SerialNumber = "ABC123456", // Możesz potem wygenerować losowy
+                ProductName = ProductNameTextBox.Text,
+                DateGenerated = DateTime.Now
+            });
+        }
+
+        private void ToggleFiltersVisibility(object sender, RoutedEventArgs e)
+        {
+            if (FiltersPanel.Visibility == Visibility.Collapsed)
+            {
+                FiltersPanel.Visibility = Visibility.Visible;
+                (sender as Button).Content = "Ukryj filtry";
+            }
+            else
+            {
+                FiltersPanel.Visibility = Visibility.Collapsed;
+                (sender as Button).Content = "Pokaż filtry";
             }
         }
+    }
+
+    public class SerialItem
+    {
+        public string SerialNumber { get; set; }
+        public string ProductName { get; set; }
+        public DateTime DateGenerated { get; set; }
     }
 }
