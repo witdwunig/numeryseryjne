@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\witol\\source\\repos\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj": {}
+    "C:\\Users\\mateu\\Desktop\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\witol\\source\\repos\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj": {
+    "C:\\Users\\mateu\\Desktop\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\witol\\source\\repos\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj",
+        "projectUniqueName": "C:\\Users\\mateu\\Desktop\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj",
         "projectName": "numeryseryjneWPF",
-        "projectPath": "C:\\Users\\witol\\source\\repos\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj",
-        "packagesPath": "C:\\Users\\witol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\witol\\source\\repos\\numeryseryjne\\numeryseryjneWPF\\obj\\",
+        "projectPath": "C:\\Users\\mateu\\Desktop\\numeryseryjne\\numeryseryjneWPF\\numeryseryjneWPF.csproj",
+        "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateu\\Desktop\\numeryseryjne\\numeryseryjneWPF\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\witol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -68,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

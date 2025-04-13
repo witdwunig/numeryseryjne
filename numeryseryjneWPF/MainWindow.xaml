@@ -24,7 +24,8 @@
 
 			<!-- Generate Button -->
 			<Button Content="Generuj" Width="120" Height="35" Background="#4CAF50" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Click ="GenerateButton_Click"/>
-		</StackPanel>
+            <Button x:Name="Refr"  Content="Odswierz" Width="120" Height="35" Background="#4CAF50" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Click ="RefreshButton_Click" RenderTransformOrigin="0.512,1.228"/>
+        </StackPanel>
 
 		<!-- Section 2: List & Filter -->
 		<StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center">
