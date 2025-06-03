@@ -30,17 +30,25 @@ internal static class Program
         {
             options.Listen(IPAddress.Any, 5000);
         });
-
+        var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        var exeLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        var dbPath = Path.Combine(exeLocation!, "serialnumbers.db");
         builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlite($"Data Source={dbPath}")
+        );
 
-        builder.Services.AddHostedService<UdpBroadcastService>();
-
+        builder.Services.AddHostedService<UdpBroadcastService>();    
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
+
+        using (var scope = app.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            db.Database.Migrate(); // Ensures DB file and schema exist
+        }   
 
         if (app.Environment.IsDevelopment())
         {
