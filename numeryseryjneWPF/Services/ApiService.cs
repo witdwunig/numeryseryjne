@@ -42,5 +42,6 @@ namespace numeryseryjneWPF.Services
                 return null;
             }
         }
+
     }
 }

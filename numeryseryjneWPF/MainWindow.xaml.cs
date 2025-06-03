@@ -20,27 +20,35 @@ namespace SerialTrack
             SerialItems = new ObservableCollection<SerialItem>();
             FilteredSerialItems = new ObservableCollection<SerialItem>();
             SerialDataGrid.ItemsSource = SerialItems;
-<<<<<<< HEAD
             InitializeServerDiscovery();
         }
 
         private async void InitializeServerDiscovery()
         {
-            Debug.WriteLine("test");
-            var discoveryService = new ServerDiscoveryService();
-            Debug.WriteLine("Before calling discovery");
-            string? serverUrl = await discoveryService.DiscoverServerAsync();
-            Debug.WriteLine("After");
+            try
+            {
+                Debug.WriteLine("test");
+                var discoveryService = new ServerDiscoveryService();
+                Debug.WriteLine("Before calling discovery");
+                string? serverUrl = await discoveryService.DiscoverServerAsync();
+                Debug.WriteLine("After");
 
-            if (serverUrl != null) 
+                if (serverUrl != null)
+                {
+                    _apiService = new ApiService(serverUrl);
+                    FetchSerialNumbers();
+                }
+                else
+                {
+                    Debug.WriteLine("Server was null");
+                }
+            }
+            catch (Exception ex)
             {
-                _apiService = new ApiService(serverUrl);
-                FetchSerialNumbers();
-            } else
-            {
-                Debug.WriteLine("Server was null");
+                Debug.WriteLine($"Exception in InitializeServerDiscovery: {ex}");
             }
         }
+
         private async void FetchSerialNumbers()
         {
             try
@@ -62,33 +70,20 @@ namespace SerialTrack
             {
                 MessageBox.Show($"Error podczas zbierania numerow seryjnych: {ex.Message}");
             }
-=======
             SerialDataGrid.ItemsSource = FilteredSerialItems;
->>>>>>> b6fe57609f037ff5c326d9ecfbdf5bbfbafba063
         }
 
         public void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            var serialNumbers = _apiService.GenerateSerialNumberAsync(ProductNameTextBox.Text);
-            Debug.WriteLine(serialNumbers);
-            FetchSerialNumbers();
-=======
             if (string.IsNullOrEmpty(ProductNameTextBox.Text))
             {
                 MessageBox.Show("Proszę podać nazwę produktu.", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            SerialItems.Add(new SerialItem
-            {
-                SerialNumber = "ABC123456", // Możesz potem wygenerować losowy
-                ProductName = ProductNameTextBox.Text,
-                DateGenerated = DateTime.Now
-
-            });
+            Debug.WriteLine(serialNumbers);
+            FetchSerialNumbers();
             ApplyFilters();
 
->>>>>>> b6fe57609f037ff5c326d9ecfbdf5bbfbafba063
         }
 
         private void ToggleFiltersVisibility(object sender, RoutedEventArgs e)
@@ -105,12 +100,11 @@ namespace SerialTrack
             }
         }
 
-<<<<<<< HEAD
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             InitializeServerDiscovery();
+            ApplyFilters();
         }
-=======
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             SerialDataGrid.IsReadOnly = !SerialDataGrid.IsReadOnly;
@@ -171,10 +165,10 @@ namespace SerialTrack
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
+            InitializeServerDiscovery();
             ApplyFilters();
         }
 
->>>>>>> b6fe57609f037ff5c326d9ecfbdf5bbfbafba063
     }
 
     public class SerialItem
